@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('angularFacebookApp', [])
-  .config(function ($routeProvider) {
+angular.module('angularFacebookApp', ['angularFacebookModule'])
+  .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -10,4 +10,6 @@ angular.module('angularFacebookApp', [])
       .otherwise({
         redirectTo: '/'
       });
-  });
+
+
+  }]);
