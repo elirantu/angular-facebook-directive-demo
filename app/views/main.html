@@ -1,11 +1,11 @@
-<div groo-facebook></div>
-<div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+<div ng-controller="MainCtrl">
+	<div groo-facebook></div>
+	<div groo-facebook-button ng-hide="isConnected"></div>
+
+	<button class="fb-button" ng-click="logout()" ng-show="isConnected">Logout</button>
+
+	<pre>
+		user:{{user}}
+		isConnected: {{isConnected}}
+	</pre>
 </div>
-<div groo-facebook-button></div>

@@ -1,13 +1,29 @@
 'use strict';
 
 angular.module('angularFacebookApp')
-  .controller('MainCtrl', function ($scope, facebookLogin, FB) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', ['$scope', '$facebook', '$rootScope', function ($scope, $facebook, $rootScope) {
+    // Update UI on reder finish and facebook sdk initialized
+    $scope.$on('$viewContentLoaded', function(){    	
+    	$rootScope.$on('connected', function(){
+      		$scope.isConnected = $facebook.isConnected();
+		    $scope.$apply();	
+      	});
+		
+		$rootScope.$on('disconnected', function(){
+      		$scope.isConnected = false;
+		    $scope.$apply();	
+      	});
 
-    console.log(FB);
-    // facebookLogin.setUser();
-  });
+
+    });
+
+
+
+    $scope.user = function(){
+    	$facebook.consumeApi('/me');
+    };
+
+    $scope.logout = function() {
+    	$facebook.logout();
+    };
+  }]);
