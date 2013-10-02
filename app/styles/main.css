@@ -1,24 +1,31 @@
 body {
     background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Helvetica', Arial, 'Signika Negative', sans-serif;
+    /*font-family: 'Offside', cursive;*/
+    /*font-family: 'Monda', sans-serif;*/
     color: #333;
 }
 
-.hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
-    font-size: 18px;
-    font-weight: 200;
-    line-height: 30px;
-    background-color: #eee;
-    border-radius: 6px;
-    padding: 60px;
+.navbar-inner {
+    padding-top: 15px;
 }
 
-.hero-unit h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+.head-padding {
+    margin: 70px auto;
+}
+
+.hero-unit {
+    margin: 70px auto 50px auto;
+}
+
+.media-object {
+    height: 64px;
+    width: 64px;
+}
+
+pre {
+    position: relative;
+    bottom: 10px;
 }
 
 .fb-button {
@@ -30,4 +37,41 @@ body {
     cursor: pointer;
     vertical-align: top;
     border: 1px solid #29447e;
+}
+
+.panel {
+    background-color: rgb(128, 255, 0);
+    opacity: 1;
+    width: 100%;
+    border: solid black 1px;
+    /*margin: 20px;*/
+}
+
+.panel-animation-forwards {
+    -webkit-animation: panel-flip 1.5s ease-out 0s 1 forwards;
+    -o-animation: panel-flip 1.5s ease-out 0s 1 forwards;
+    animation: panel-flip 1.5s ease-out 0s 1 forwards;  
+}
+.panel-animation-backwards {
+    -webkit-animation: panel-flip 1.5s ease-out 0s 1 backwards;
+    -o-animation: panel-flip 1.5s ease-out 0s 1 backwards;
+    animation: panel-flip 1.5s ease-out 0s 1 backwards;  
+}
+
+@-webkit-keyframes panel-flip {
+    0% {
+        -webkit-transform: perspective(200px) rotateY(0deg);
+        -moz-transform: perspective(200px) rotateY(0deg);
+        -o-transform: perspective(200px) rotateY(0deg);
+        -ms-transform: perspective(200px) rotateY(0deg);
+        transform: perspective(200px) rotateY(0deg);
+    }
+
+    100% {
+        -webkit-transform: perspective(200px) rotateY(-25deg);
+        -moz-transform: perspective(200px) rotateY(-25deg);
+        -o-transform: perspective(200px) rotateY(-25deg);
+        -ms-transform: perspective(200px) rotateY(-25deg);
+        transform: perspective(200px) rotateY(-25deg);
+    }
 }

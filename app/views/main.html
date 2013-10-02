@@ -1,11 +1,26 @@
-<div ng-controller="MainCtrl">
-	<div groo-facebook></div>
-	<div groo-facebook-button ng-hide="isConnected"></div>
-
-	<button class="fb-button" ng-click="logout()" ng-show="isConnected">Logout</button>
-
-	<pre>
-		user:{{user}}
-		isConnected: {{isConnected}}
-	</pre>
+<div ng-include src="'views/_navbar.html'"></div>
+<div ng-show="isConnected">
+	<div class="row">
+		<div class="span3">
+			<div groo-facebook-user></div>
+		</div>
+		<div class="span9">
+			<div groo-facebook-friendlist></div>
+		</div>
+	</div>
 </div>
+<div class="hero-unit" ng-show="!isConnected">
+	<h2>angular-facebook</h2>
+	<p>This site explain the use of the directives angular-facebook.</p>
+	<code>
+		$scope.$on('response', function_expression);
+	</code>
+	<br/>
+	<p>To see how it works, please login in your facebook account, in the up rigth conner of your screen. Thanks.</p>
+</div>
+<!-- <pre ng-cloak>
+	user:{{user}}
+	auth:{{auth}}
+	isConnected: {{isConnected}}
+	lastResponse: {{lastResponse}}
+</pre>	 -->

@@ -28,12 +28,23 @@ angular.module('angularFacebookModule')
 	  }  	
   }])
   .directive('grooFacebookButton', function(){
-  	var template = '<fb:login-button show-faces="{{showFaces}}" width="200" max-rows="1" ng-model="showFaces"></fb:login-button>';
+  	var template = '<fb:login-button show-faces="false" width="200" max-rows="1" ng-model="showFaces"></fb:login-button>';
   	return {
-  		replace:true,
+  		replace:false,
   		link: function postLink(scope, element, attrs) {
   			scope.showFaces = true;
   			element.html(template);
   		}
+  	}
+  })
+  .directive('grooFacebookUser', function(){
+  	return {
+
+  		template: '<div class="media"> <a class="pull-left" href="#"> <img class="media-object" src="{{user.picture.data.url}}"> </a> <div class="media-body"> <h4 class="media-heading">{{user.name}}</h4> ... </div></div>'
+  	}
+  })
+  .directive('grooFacebookFriendlist', function(){
+  	return {
+  		template:'<h2 ng-hide="friends">loading your friends ...</h2><div class="media" ng-repeat="friend in friends" ng-show="friends"> <a class="pull-left" href="#"> <img class="media-object" src="{{friend.picture.data.url}}"> </a> <div class="media-body"> <h4 class="media-heading">{{friend.name}}</h4> ... </div></div>'
   	}
   });

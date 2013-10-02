@@ -1,0 +1,13 @@
+<div class="head-padding" groo-facebook></div>
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			
+			<!-- <button class="fb-button" ng-click="getApi('/me/friends?fields=picture.type(small),name', 'response_list_friends')">Amigos</button> -->
+			<div groo-facebook-button ng-hide="isConnected" class="pull-right" ng-model="isConnected"></div>
+			<button class="fb-button pull-right" ng-click="logout()" ng-show="isConnected">Logout</button>
+
+		</div>
+			
+	</div>
+</div>
